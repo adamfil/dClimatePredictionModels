@@ -33,4 +33,4 @@ def temp_prediction(days_in_future: int, lat: int, long: int):
     py_hw = hw_model.forecast(days_in_future) + np.mean(hw_resid)
 
     #output
-    return(py_hw[-1])
+    return(py_hw.values[-1])

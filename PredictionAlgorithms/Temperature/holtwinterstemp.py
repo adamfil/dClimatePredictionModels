@@ -16,6 +16,7 @@ def temp_prediction(days_in_future: int, lat: int, long: int):
     values = [float(s.split()[0]) if s else None for s in data.values()]
     series = pd.Series(values, index=index)
     df = series.to_frame(name='Value')
+    df = df[~df.index.astype(str).str.contains('02-29')]
 
     #algorithm 
     hw_model = ExponentialSmoothing(df["Value"],
